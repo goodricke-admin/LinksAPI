@@ -3,6 +3,7 @@ const routes = require("./routes/link");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const compression = require("compression");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -10,11 +11,7 @@ const app = express();
 
 app.use(helmet());
 app.use(compression());
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 
 mongoose.connect(
   process.env.MONGODB_URI,
@@ -39,6 +36,6 @@ app.route("/").get(function (req, res) {
   res.sendFile(process.cwd() + "/index.html");
 });
 
-const listener = app.listen(process.env.PORT || 3000, () => {
+const listener = app.listen(process.env.PORT || 3001, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
