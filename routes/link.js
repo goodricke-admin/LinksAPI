@@ -20,7 +20,7 @@ router.get("/wellbeing/link", wellbeingController.getAllWellbeingLinks);
 router.delete("/wellbeing/link", wellbeingController.deleteAllWellbeingLinks);
 
 router.delete(
-  "/wellbeing/link/:Linktext",
+  "/wellbeing/link/:WellbeingLinktext",
   wellbeingController.deleteOneWellbeingLinks
 );
 
